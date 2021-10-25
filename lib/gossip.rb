@@ -24,5 +24,15 @@ class Gossip
 			return line if i == id.to_i
 		end
 	end
-	def update(id, edited_content)
+	def self.update(id, edited_content)
+		edited_array = CSV.read("./db/gossip.csv")
+		edited_array.each.with_index do |line, i|
+			line[1] = edited_content if i == id.to_i
+		end
+		CSV.open("./db/gossip.csv", "w") do |csv|
+			edited_array.each do |i|
+				csv << i
+			end
+		end
+	end
 end
