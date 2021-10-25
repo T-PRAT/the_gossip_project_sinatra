@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+  <body>
+    <h1>Mon super site de gossip !</h1>
+    <% gossips.each.with_index do |gossip, id| %>
+      <p>
+        <%= gossip.author %><br/>
+        <%= gossip.content %>
+        <a href="/gossips/<%= id %>/">Go</a>
+      </p>
+    <% end %>
+    <a href="/gossips/new/">Créer un nouveau gossip</a>.
+  </body>
+</html>
